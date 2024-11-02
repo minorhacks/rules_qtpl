@@ -1,0 +1,11 @@
+load("@gazelle//:def.bzl", "gazelle")
+
+# Don't let gazelle make BUILD targets in this dir, since it will misgenerate
+# targets for the top-level library (which is only used to ensure tools are
+# fetched)
+# gazelle:ignore
+
+# gazelle:prefix github.com/minorhacks/rules_qtpl
+gazelle(
+    name = "go_build_update",
+)
