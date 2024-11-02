@@ -1,0 +1,11 @@
+load("//qtpl:qtpl.bzl", "go_qtpl_library")
+
+# gazelle:ignore
+
+package(default_visibility = ["//examples/quicktemplate_readme:__pkg__"])
+
+go_qtpl_library(
+    name = "templates",
+    srcs = ["template.qtpl"],
+    importpath = "github.com/minorhacks/rules_qtpl/examples/quicktemplate_readme/templates",
+)

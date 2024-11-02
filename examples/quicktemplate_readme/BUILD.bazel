@@ -1,0 +1,20 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+# TODO(minor-fixes): All go_qtpl_library rules need gazelle resolve directives,
+# or they won't resolve properly.
+
+# gazelle:resolve go github.com/minorhacks/rules_qtpl/examples/quicktemplate_readme/templates //examples/quicktemplate_readme/templates
+
+go_library(
+    name = "quicktemplate_readme_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/minorhacks/rules_qtpl/examples/quicktemplate_readme",
+    visibility = ["//visibility:private"],
+    deps = ["//examples/quicktemplate_readme/templates"],
+)
+
+go_binary(
+    name = "quicktemplate_readme",
+    embed = [":quicktemplate_readme_lib"],
+    visibility = ["//visibility:public"],
+)
